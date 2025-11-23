@@ -1,57 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amber Grijalba | Inteligencia Artificial</title> 
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amber Grijalba | Portafolio</title>
+
+  <!-- TIPOGRAFÍAS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c1220;
+      --card: #10182c;
+      --primary: #7a5cff;
+      --secondary: #00c6ff;
+      --text: #e9e9e9;
+      --accent: #ffd369;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 2rem 8%;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    header h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: .5rem;
+      color: var(--accent);
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1.5rem auto;
+      display: block;
+      border: 4px solid var(--secondary);
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+    }
+
+    .cv-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: .8rem 1.6rem;
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: .25s ease;
+    }
+
+    .cv-btn:hover {
+      opacity: .85;
+      transform: scale(1.03);
+    }
+
+    .about {
+      padding: 2rem 8%;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about p {
+      font-size: 1.05rem;
+      opacity: .9;
+    }
+
+    .projects-section {
+      padding: 3rem 8%;
+      text-align: center;
+    }
+
+    .projects-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: var(--accent);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      padding: 1.8rem;
+      border-radius: 18px;
+      text-align: left;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      opacity: .85;
+      margin: .6rem 0 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      padding: .7rem 1.4rem;
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      opacity: .85;
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      opacity: .6;
+      font-size: .9rem;
+    }
+
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Amber Grijalba</h1> 
-        <p>Ingeniería Biomédica | Inteligencia Artificial</p>
-    </header>
 
-    <section class="about">
-        <h2>Sobre mí</h2>
-        <p>¡Hola! 👋 Soy <strong>Amber Grijalba</strong>, estudiante de Ingeniería Biomédica apasionada por la tecnología, la innovación y el potencial que tiene la <strong>Inteligencia Artificial</strong> para mejorar la salud y la vida de las personas.  
-        En este espacio presento las diferentes <strong>asignaciones, proyectos y prácticas</strong> desarrolladas durante la materia de Inteligencia Artificial.  
-        Espero que este recorrido sea de su agrado y que disfruten explorando cada uno de los trabajos realizados 💗🤖.</p>
-    </section>
+  <header>
+    <h1>Amber Grijalba</h1>
+    <h2>Ingeniería Biomédica | Inteligencia Artificial</h2>
 
-    <section class="projects">
-        <h2>Mis Proyectos y Tareas 🧠</h2>
-        <div class="project-grid">
+    <img class="profile-pic" src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/1000115419.png" alt="Foto de Amber Grijalba">
 
-            <a href="https://github.com/AmberGrijalba/Amber-Grijalba" class="project-card" target="_blank" aria-label="Ver Tarea 1: Introducción a la IA">
-                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Red neuronal">
-                <h3>Tarea 1</h3>
-                <p>Introducción a la IA</p>
-            </a>
+    <a class="cv-btn" href="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/Amber%20Grijalba%20CV%202025%20CV.pdf" target="_blank">
+      Descargar CV
+    </a>
+  </header>
 
-            <a href="https://ambergrijalba.github.io/Amber-Grijalba/Tarea%202%20/Analisis%20de%20sue%C3%B1os/" class="project-card" target="_blank" aria-label="Ver Tarea 2: Análisis de Sueños">
-                <img src="https://cdn-icons-png.flaticon.com/512/4712/4712030.png" alt="Machine learning">
-                <h3>Tarea 2</h3>
-                <p>Análisis de Sueños 💤</p>
-            </a>
+  <section class="about">
+    <p>
+      Soy <strong>Amber Grijalba</strong>, estudiante de último año de la Licenciatura en Ingeniería Biomédica, responsable, creativa y orientada a la solución de problemas.  
+      Me apasiona la innovación tecnológica aplicada a la salud, el análisis de datos y la inteligencia artificial como herramientas para mejorar la calidad de vida.  
+      Este portafolio reúne mis análisis, prácticas y asignaciones, con el objetivo de demostrar mi desarrollo académico y profesional.  
+      ¡Espero que cada proyecto sea de su interés y aporte valor en este recorrido! 🌟🤖
+    </p>
+  </section>
 
-            <a href="https://ambergrijalba.github.io/medical-insurance-cost-analysis/reporte-final.html" class="project-card" target="_blank" aria-label="Ver Tarea 3: Análisis de datos de seguro salud">
-                <img src="https://cdn-icons-png.flaticon.com/512/8598/8598409.png" alt="Datos biomédicos">
-                <h3>Tarea 3</h3>
-                <p>Análisis de datos de seguro salud</p>
-            </a>
+  <section class="projects-section">
+    <h2>Mis Asignaciones y Proyectos</h2>
 
-            <a href="https://github.com/AmberGrijalba/Tarea4" class="project-card" target="_blank" aria-label="Ver Tarea 4: Chatbot con IA">
-                <img src="https://cdn-icons-png.flaticon.com/512/1048/1048948.png" alt="Chatbot">
-                <h3>Tarea 4</h3>
-                <p>Chatbot con IA</p>
-            </a>
+    <div class="projects-grid">
 
-        </div>
-    </section>
+      <div class="project-card">
+        <h3>Asignación 1</h3>
+        <p>Descripción breve que podrás actualizar.</p>
+        <a href="#" class="btn">Ver en GitHub</a>
+      </div>
 
-    <footer>
-        <p>💗 Página creada por Amber Grijalba | 2025</p> 
-    </footer>
+      <div class="project-card">
+        <h3>Asignación 2</h3>
+        <p>Espacio listo para otro análisis.</p>
+        <a href="#" class="btn">Ver en GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Asignación 3</h3>
+        <p>Aquí podrás colocar cualquier otro trabajo.</p>
+        <a href="#" class="btn">Ver en GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Asignación 4</h3>
+        <p>Tarjeta disponible para nueva tarea.</p>
+        <a href="#" class="btn">Ver en GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Asignación 5</h3>
+        <p>Espacio preparado para futuros proyectos.</p>
+        <a href="#" class="btn">Ver en GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <h3>Asignación 6</h3>
+        <p>Última tarjeta disponible para tu trabajo número seis.</p>
+        <a href="#" class="btn">Ver en GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2025 | Portafolio de Amber Grijalba
+  </footer>
+
 </body>
 </html>
+
