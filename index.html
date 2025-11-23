@@ -31,12 +31,26 @@
       line-height: 1.6;
     }
 
+    /* 🔹 SECCIÓN PRINCIPAL IZQUIERDA / DERECHA */
     header {
-      padding: 2rem 8%;
+      padding: 3rem 8%;
+    }
+
+    .hero-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-left {
+      flex: 1;
+      min-width: 280px;
       text-align: center;
     }
 
-    header h1 {
+    .hero-left h1 {
       font-size: 3rem;
       font-weight: 800;
       background: linear-gradient(90deg, var(--secondary), var(--primary));
@@ -44,16 +58,16 @@
       color: transparent;
     }
 
-    header h2 {
-      font-size: 1.3rem;
+    .hero-left h2 {
+      font-size: 1.2rem;
       font-weight: 600;
       margin-top: .5rem;
       color: var(--primary);
     }
 
     .profile-pic {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
       margin: 1.5rem auto;
@@ -79,18 +93,19 @@
       transform: scale(1.03);
     }
 
-    .about {
-      padding: 2rem 8%;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+    .hero-right {
+      flex: 1.2;
+      min-width: 280px;
     }
 
-    .about p {
+    .about-text {
       font-size: 1.05rem;
       opacity: .9;
+      text-align: justify;
+      line-height: 1.9;
     }
 
+    /* 🔹 SECCIÓN DE ASIGNACIONES */
     .projects-section {
       padding: 3rem 8%;
       text-align: center;
@@ -162,26 +177,35 @@
 </head>
 <body>
 
+  <!-- 🔹 PORTADA IZQUIERDA / DERECHA -->
   <header>
-    <h1>Amber Grijalba</h1>
-    <h2>Ingeniería Biomédica | Inteligencia Artificial</h2>
+    <div class="hero-container">
 
-    <img class="profile-pic" src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/1000115419.png" alt="Foto de Amber Grijalba">
+      <!-- IZQUIERDA -->
+      <div class="hero-left">
+        <h1>Amber Grijalba</h1>
+        <h2>Ingeniería Biomédica | Inteligencia Artificial</h2>
 
-    <a class="cv-btn" href="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/Amber%20Grijalba%20CV%202025%20CV.pdf" target="_blank">
-      Descargar CV
-    </a>
+        <img class="profile-pic" src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/1000115419.png" alt="Foto de Amber Grijalba">
+
+        <a class="cv-btn" href="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/Amber%20Grijalba%20CV%202025%20CV.pdf" target="_blank">
+          Descargar CV
+        </a>
+      </div>
+
+      <!-- DERECHA -->
+      <div class="hero-right">
+        <p class="about-text">
+          Soy <strong>Amber Grijalba</strong>, estudiante de último año de la Licenciatura en Ingeniería Biomédica, responsable, creativa y orientada a la solución de problemas. Me apasiona la innovación tecnológica aplicada a la salud, el análisis de datos y la inteligencia artificial como herramientas para mejorar la calidad de vida.  
+          Este portafolio reúne mis análisis, prácticas y asignaciones, con el objetivo de demostrar mi desarrollo académico y profesional.  
+          ¡Espero que cada proyecto sea de su interés y aporte valor en este recorrido! 🌟🤖
+        </p>
+      </div>
+
+    </div>
   </header>
 
-  <section class="about">
-    <p>
-      Soy <strong>Amber Grijalba</strong>, estudiante de último año de la Licenciatura en Ingeniería Biomédica, responsable, creativa y orientada a la solución de problemas.  
-      Me apasiona la innovación tecnológica aplicada a la salud, el análisis de datos y la inteligencia artificial como herramientas para mejorar la calidad de vida.  
-      Este portafolio reúne mis análisis, prácticas y asignaciones, con el objetivo de demostrar mi desarrollo académico y profesional.  
-      ¡Espero que cada proyecto sea de su interés y aporte valor en este recorrido! 🌟🤖
-    </p>
-  </section>
-
+  <!-- 🔹 ASIGNACIONES -->
   <section class="projects-section">
     <h2>Mis Asignaciones y Proyectos</h2>
 
