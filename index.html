@@ -1,258 +1,82 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amber Grijalba | Portafolio</title>
+<div class="projects-grid">
 
-  <!-- TIPOGRAFÍAS -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- 🔹 1. Sleep Patterns Analysis -->
+  <div class="project-card">
+    <h3>Análisis de Patrones de Sueño</h3>
+    <img src="https://raw.githubusercontent.com/AmberGrijalba/sleep-patterns-analysis/main/img/sleep_graph.png"
+         alt="Sleep Patterns Graph"
+         style="width:100%; border-radius:12px; margin:10px 0;">
+    <p>
+      Análisis exploratorio de estilos de vida y hábitos de sueño. Incluye limpieza, 
+      visualización y generación de insights sobre descanso, estrés y calidad de vida.
+    </p>
+    <a href="https://github.com/AmberGrijalba/sleep-patterns-analysis" class="btn" target="_blank">Ver en GitHub</a>
+  </div>
 
-  <style>
-    :root {
-      --bg: #1c2a18;
-      --card: #006600;
-      --primary: #6eea8e;
-      --secondary: #826cf6;
-      --text: #e9e9e9;
-      --accent: #6eea8e;
-    }
+  <!-- 🔹 2. Insurance Cost Regression -->
+  <div class="project-card">
+    <h3>Predicción de Costos de Seguro</h3>
+    <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/img/regression_plot.png"
+         alt="Insurance Regression Plot"
+         style="width:100%; border-radius:12px; margin:10px 0;">
+    <p>
+      Proyecto de regresión para estimar el costo de seguros médicos utilizando 
+      variables demográficas y de estilo de vida. Incluye limpieza, visualización 
+      y modelo predictivo sin sklearn.
+    </p>
+    <a href="https://github.com/AmberGrijalba/insurance-regression" class="btn" target="_blank">Ver en GitHub</a>
+  </div>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+  <!-- 🔹 3. Mental Health & Suicide Analysis -->
+  <div class="project-card">
+    <h3>Análisis de Salud Mental y Suicidio</h3>
+    <img src="https://raw.githubusercontent.com/AmberGrijalba/suicide-mental-health-analysis/main/img/correlation_map.png"
+         alt="Correlation Heatmap"
+         style="width:100%; border-radius:12px; margin:10px 0;">
+    <p>
+      Exploración de datos globales relacionados con salud mental, abuso de sustancias 
+      y tasas de suicidio. Incluye gráficos, correlaciones y patrones clave.
+    </p>
+    <a href="https://github.com/AmberGrijalba/suicide-mental-health-analysis" class="btn" target="_blank">Ver en GitHub</a>
+  </div>
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+  <!-- 🔹 4. Proyecto disponible -->
+  <div class="project-card">
+    <h3>Clasificación de Imágenes (2 clases)</h3>
+    <img src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/img/classification_example.png"
+         alt="Image Classification Example"
+         style="width:100%; border-radius:12px; margin:10px 0;">
+    <p>
+      Proyecto de clasificación de imágenes para dos categorías usando redes neuronales 
+      profundas, preprocesamiento y análisis estadístico del dataset.
+    </p>
+    <a href="#" class="btn">Próximamente</a>
+  </div>
 
-    /* 🔹 SECCIÓN PRINCIPAL IZQUIERDA / DERECHA */
-    header {
-      padding: 3rem 8%;
-    }
+  <!-- 🔹 5. Proyecto disponible -->
+  <div class="project-card">
+    <h3>Modelo de Clustering (FastAPI)</h3>
+    <img src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/img/clustering_plot.png"
+         alt="Clustering Model"
+         style="width:100%; border-radius:12px; margin:10px 0;">
+    <p>
+      Implementación de un modelo de clustering desplegado con FastAPI y Render, 
+      integrado a una interfaz web para predicciones interactivas.
+    </p>
+    <a href="#" class="btn">Próximamente</a>
+  </div>
 
-    .hero-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
+  <!-- 🔹 6. Proyecto disponible -->
+  <div class="project-card">
+    <h3>Monitor Multiparámetro (Simulación)</h3>
+    <img src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/img/multiparam_graph.png"
+         alt="Multiparameter Monitor"
+         style="width:100%; border-radius:12px; margin:10px 0;">
+    <p>
+      Simulación de monitor multiparámetro con ECG, SpO₂ y temperatura en pantalla 
+      TFT. Incluye interfaz gráfica, alarmas y variación de señales.
+    </p>
+    <a href="#" class="btn">Próximamente</a>
+  </div>
 
-    .hero-left {
-      flex: 1;
-      min-width: 280px;
-      text-align: center;
-    }
-
-    .hero-left h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, var(--secondary), var(--primary));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-left h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: .5rem;
-      color: var(--primary);
-    }
-
-    .profile-pic {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1.5rem auto;
-      display: block;
-      border: 4px solid var(--secondary);
-      box-shadow: 0 0 25px rgba(130, 108, 246, 0.5);
-    }
-
-    .cv-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--secondary), var(--primary));
-      padding: .8rem 1.6rem;
-      border-radius: 30px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 1rem;
-      transition: .25s ease;
-    }
-
-    .cv-btn:hover {
-      opacity: .85;
-      transform: scale(1.03);
-    }
-
-    .hero-right {
-      flex: 1.2;
-      min-width: 280px;
-    }
-
-    .about-text {
-      font-size: 1.05rem;
-      opacity: .9;
-      text-align: justify;
-      line-height: 1.9;
-    }
-
-    /* 🔹 SECCIÓN DE ASIGNACIONES */
-    .projects-section {
-      padding: 3rem 8%;
-      text-align: center;
-    }
-
-    .projects-section h2 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-      color: var(--secondary);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .project-card {
-      background: var(--card);
-      padding: 1.8rem;
-      border-radius: 18px;
-      text-align: left;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-    }
-
-    .project-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .project-card p {
-      font-size: 0.95rem;
-      opacity: .85;
-      margin: .6rem 0 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(90deg, var(--secondary), var(--primary));
-      padding: .7rem 1.4rem;
-      border-radius: 30px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.25s ease;
-    }
-
-    .btn:hover {
-      opacity: .85;
-      transform: scale(1.03);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      opacity: .6;
-      font-size: .9rem;
-    }
-
-  </style>
-</head>
-<body>
-
-  <!-- 🔹 PORTADA IZQUIERDA / DERECHA -->
-  <header>
-    <div class="hero-container">
-
-      <!-- IZQUIERDA -->
-      <div class="hero-left">
-        <h1>Amber Grijalba</h1>
-        <h2>Ingeniería Biomédica | Inteligencia Artificial</h2>
-
-        <img class="profile-pic" src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/1000115419.png" alt="Foto de Amber Grijalba">
-
-        <a class="cv-btn" href="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/Amber%20Grijalba%20CV%202025%20CV.pdf" target="_blank">
-          Descargar CV
-        </a>
-      </div>
-
-      <!-- DERECHA -->
-      <div class="hero-right">
-        <p class="about-text">
-          Soy <strong>Amber Grijalba</strong>, estudiante de último año de la Licenciatura en Ingeniería Biomédica, responsable, creativa y orientada a la solución de problemas. Me apasiona la innovación tecnológica aplicada a la salud, el análisis de datos y la inteligencia artificial como herramientas para mejorar la calidad de vida.  
-          Este portafolio reúne mis análisis, prácticas y asignaciones, con el objetivo de demostrar mi desarrollo académico y profesional.  
-          ¡Espero que cada proyecto sea de su interés y aporte valor en este recorrido!
-        </p>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- 🔹 ASIGNACIONES -->
-  <section class="projects-section">
-    <h2>Mis Asignaciones y Proyectos</h2>
-
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <h3>Asignación 1</h3>
-        <p>Descripción breve que podrás actualizar.</p>
-        <a href="#" class="btn">Ver en GitHub</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Asignación 2</h3>
-        <p>Espacio listo para otro análisis.</p>
-        <a href="#" class="btn">Ver en GitHub</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Asignación 3</h3>
-        <p>Aquí podrás colocar cualquier otro trabajo.</p>
-        <a href="#" class="btn">Ver en GitHub</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Asignación 4</h3>
-        <p>Tarjeta disponible para nueva tarea.</p>
-        <a href="#" class="btn">Ver en GitHub</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Asignación 5</h3>
-        <p>Espacio preparado para futuros proyectos.</p>
-        <a href="#" class="btn">Ver en GitHub</a>
-      </div>
-
-      <div class="project-card">
-        <h3>Asignación 6</h3>
-        <p>Última tarjeta disponible para tu trabajo número seis.</p>
-        <a href="#" class="btn">Ver en GitHub</a>
-      </div>
-
-    </div>
-  </section>
-
-  <footer>
-    © 2025 | Portafolio de Amber Grijalba
-  </footer>
-
-</body>
-</html>
+</div>
