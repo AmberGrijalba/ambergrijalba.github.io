@@ -143,7 +143,6 @@
       color: var(--primary);
     }
 
-    /* 🔥 MISMO TAMAÑO PARA TODAS LAS IMÁGENES */
     .project-card img {
       width: 100%;
       height: 250px;
@@ -192,12 +191,9 @@
       width: 80%;
       margin: 50px auto;
       box-shadow: 0 0 25px rgba(120,255,150,0.25);
-
-      /* Para animación */
       transition: all .6s ease;
     }
 
-    /* ESTADO OCULTO PARA LA ANIMACIÓN */
     .hidden {
       max-height: 0 !important;
       opacity: 0 !important;
@@ -443,6 +439,72 @@
     isOpen = !isOpen;
   });
 </script>
+
+
+<!-- ⭐ SCRIPT NUEVO: CALCULAR COSTO DEL SEGURO -->
+<script>
+  const calcBtn = document.querySelector(".ui-btn");
+
+  const resultBox = document.createElement("div");
+  resultBox.style.marginTop = "25px";
+  resultBox.style.padding = "20px";
+  resultBox.style.background = "#102410";
+  resultBox.style.border = "2px solid #63e28f";
+  resultBox.style.borderRadius = "15px";
+  resultBox.style.fontSize = "18px";
+  resultBox.style.display = "none";
+  resultBox.style.color = "white";
+
+  document.querySelector(".ui-card").appendChild(resultBox);
+
+  calcBtn.addEventListener("click", () => {
+
+    const inputs = document.querySelectorAll(".ui-card input");
+    const selects = document.querySelectorAll(".ui-card select");
+
+    let edad = Number(inputs[0].value);
+    let bmi = Number(inputs[1].value);
+    let hijos = Number(inputs[2].value);
+    let sexo = selects[0].value;
+    let fumador = selects[1].value;
+    let region = selects[2].value;
+
+    if (!edad || !bmi || sexo === "Seleccione..." || fumador === "Seleccione..." || region === "Seleccione...") {
+      resultBox.style.display = "block";
+      resultBox.innerHTML = "<strong>Por favor complete todos los campos correctamente.</strong>";
+      return;
+    }
+
+    let costo = 250;
+    costo += edad * 15;
+    costo += bmi * 12;
+    costo += hijos * 120;
+
+    if (sexo === "Femenino") costo -= 50;
+    if (fumador === "Sí") costo += 1800;
+    if (region === "Southeast") costo += 120;
+    if (region === "Southwest") costo += 80;
+
+    costo = Math.round(costo);
+
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `
+      <strong>Resultado de la estimación:</strong><br><br>
+      El costo estimado del seguro médico, considerando factores demográficos y clínicos, es:<br><br>
+
+      <div style="font-size:26px; color:#6eea8e; font-weight:700;">
+        $${costo}.00 USD
+      </div>
+
+      <br>
+      <em style="color:#b5cbb5;">
+        Nota: Este cálculo es únicamente una estimación educativa basada en tendencias predictivas.  
+        No sustituye una cotización real de una aseguradora.
+      </em>
+    `;
+  });
+</script>
+
 
 </body>
 </html>
