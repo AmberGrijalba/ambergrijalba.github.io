@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -164,6 +164,7 @@
       text-decoration: none;
       font-weight: 600;
       transition: 0.25s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -179,8 +180,20 @@
     }
 
     /* -----------------------------------------------------------
-       INTERFAZ SEGURO MÉDICO (HTML + CSS agregado)
+       INTERFAZ DEL SEGURO MÉDICO (CON ACCORDION)
        ----------------------------------------------------------- */
+
+    #insurance-ui {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.7s ease, opacity 0.7s ease;
+    }
+
+    #insurance-ui.active {
+      max-height: 2000px;
+      opacity: 1;
+    }
 
     .ui-container {
       background: #1c2a18;
@@ -293,6 +306,9 @@
         <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/output/regression_plot.png" alt="Insurance Regression Graph">
         <p>Modelo de regresión para predecir el costo de seguros médicos según edad, IMC y factores de riesgo.</p>
         <a href="https://github.com/AmberGrijalba/insurance-regression" target="_blank" class="btn">Ver en GitHub</a>
+
+        <!-- BOTÓN PARA DESPLEGAR EL FORMULARIO -->
+        <button class="btn" onclick="toggleInterfaz()">Ver Interfaz</button>
       </div>
 
       <!-- PROYECTO 3 -->
@@ -330,8 +346,7 @@
     </div>
   </section>
 
-
-  <!-- 💚💜 INTERFAZ SEGURO MÉDICO -->
+  <!-- FORMULARIO CON ACCORDION -->
   <section id="insurance-ui" class="ui-container">
     <h2 class="ui-title">Insurance Cost Prediction – User Interface</h2>
 
@@ -382,10 +397,24 @@
     </a>
   </section>
 
-
   <footer>
     © 2025 | Portafolio de Amber Grijalba
   </footer>
+
+  <!-- SCRIPT COMPLETO PARA EL ACCORDION -->
+  <script>
+    function toggleInterfaz() {
+      const section = document.getElementById("insurance-ui");
+      section.classList.toggle("active");
+
+      // si se abrió, hacer scroll suave
+      if (section.classList.contains("active")) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+      }
+    }
+  </script>
 
 </body>
 </html>
