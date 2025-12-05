@@ -193,9 +193,11 @@
       margin: 50px auto;
       box-shadow: 0 0 25px rgba(120,255,150,0.25);
 
+      /* Para animación */
       transition: all .6s ease;
     }
 
+    /* ESTADO OCULTO PARA LA ANIMACIÓN */
     .hidden {
       max-height: 0 !important;
       opacity: 0 !important;
@@ -363,30 +365,30 @@
     <div class="ui-card">
 
       <label>Edad</label>
-      <input id="edad" type="number" placeholder="Ej. 35">
+      <input type="number" placeholder="Ej. 35">
 
       <label>IMC (BMI)</label>
-      <input id="imc" type="number" placeholder="Ej. 27.4">
+      <input type="number" placeholder="Ej. 27.4">
 
       <label>Hijos</label>
-      <input id="hijos" type="number" placeholder="0, 1, 2...">
+      <input type="number" placeholder="0, 1, 2...">
 
       <label>Sexo</label>
-      <select id="sexo">
+      <select>
         <option>Seleccione...</option>
         <option>Femenino</option>
         <option>Masculino</option>
       </select>
 
       <label>Fumador</label>
-      <select id="fumador">
+      <select>
         <option>Seleccione...</option>
         <option>No</option>
         <option>Sí</option>
       </select>
 
       <label>Región</label>
-      <select id="region">
+      <select>
         <option>Seleccione...</option>
         <option>Southwest</option>
         <option>Southeast</option>
@@ -394,11 +396,7 @@
         <option>Northeast</option>
       </select>
 
-      <button class="ui-btn" id="btnCalcular">Calcular</button>
-
-      <!-- 🔥 RESULTADO DEL ANÁLISIS (AGREGADO) -->
-      <div id="resultado-seguro" style="margin-top:20px; color:#a3f7b5; font-size:18px;"></div>
-
+      <button class="ui-btn">Calcular</button>
     </div>
 
     <a href="https://github.com/AmberGrijalba/insurance-regression" class="ui-link" target="_blank">
@@ -444,38 +442,6 @@
 
     isOpen = !isOpen;
   });
-</script>
-
-<!-- ⭐ SCRIPT DEL ANÁLISIS SIMULADO (AGREGADO) -->
-<script>
-document.getElementById("btnCalcular").addEventListener("click", function() {
-  
-  const edad = Number(document.getElementById("edad").value);
-  const imc = Number(document.getElementById("imc").value);
-  const hijos = Number(document.getElementById("hijos").value);
-  const sexo = document.getElementById("sexo").value;
-  const fumador = document.getElementById("fumador").value;
-  const region = document.getElementById("region").value;
-
-  let mensaje = "<strong>Resultados del Análisis Simulado:</strong><br><br>";
-
-  if (edad > 50) mensaje += "• La edad incrementa moderadamente el costo del seguro.<br>";
-  else mensaje += "• La edad no representa un riesgo elevado para el cálculo.<br>";
-
-  if (imc > 30) mensaje += "• El IMC indica sobrepeso/obesidad, lo cual incrementa el costo.<br>";
-  else mensaje += "• El IMC está dentro de parámetros saludables.<br>";
-
-  if (fumador === "Sí") mensaje += "• El hábito de fumar aumenta significativamente el costo del seguro.<br>";
-  else mensaje += "• No fumar reduce riesgos y costos asociados.<br>";
-
-  if (hijos > 0) mensaje += `• Tener ${hijos} hijo(s) puede modificar ligeramente el valor del seguro.<br>`;
-
-  mensaje += `• Región reportada: ${region}.<br><br>`;
-
-  mensaje += "<em>⚠ Este análisis es solo con fines educativos y no reemplaza una evaluación actuarial real.</em>";
-
-  document.getElementById("resultado-seguro").innerHTML = mensaje;
-});
 </script>
 
 </body>
