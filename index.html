@@ -143,11 +143,11 @@
       color: var(--primary);
     }
 
-    /* 🔥 AJUSTE FINAL: TODAS LAS IMÁGENES DEL MISMO TAMAÑO */
+    /* 🔥 MISMO TAMAÑO PARA TODAS LAS IMÁGENES */
     .project-card img {
       width: 100%;
-      height: 250px;     /* ← MISMO ALTO */
-      object-fit: fill;  /* ← PERMITE DEFORMAR */
+      height: 250px;
+      object-fit: fill;
       border-radius: 12px;
       margin-bottom: .8rem;
     }
@@ -182,7 +182,7 @@
     }
 
     /* -----------------------------------------------------------
-       INTERFAZ SEGURO MÉDICO (HTML + CSS agregado)
+       INTERFAZ SEGURO MÉDICO
        ----------------------------------------------------------- */
 
     .ui-container {
@@ -192,6 +192,18 @@
       width: 80%;
       margin: 50px auto;
       box-shadow: 0 0 25px rgba(120,255,150,0.25);
+
+      /* Para animación */
+      transition: all .6s ease;
+    }
+
+    /* ESTADO OCULTO PARA LA ANIMACIÓN */
+    .hidden {
+      max-height: 0 !important;
+      opacity: 0 !important;
+      overflow: hidden !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
     }
 
     .ui-title {
@@ -301,14 +313,13 @@
         <p>Modelo de regresión para predecir el costo de seguros médicos según edad, IMC y factores de riesgo.</p>
 
         <a href="https://github.com/AmberGrijalba/insurance-regression" target="_blank" class="btn">Ver en GitHub</a>
-        <a href="#insurance-ui" class="btn" style="margin-left:10px;background:#444;">Ver Interfaz</a>
+        <a id="toggle-interface" href="#insurance-ui" class="btn" style="margin-left:10px;background:#444;">Ver Interfaz</a>
       </div>
 
       <!-- PROYECTO 3 -->
       <div class="project-card">
         <h3>Mental Health & Suicide Analysis</h3>
         <img src="https://raw.githubusercontent.com/AmberGrijalba/suicide-mental-health-analysis/main/output/suicide_trends.png" alt="Suicide Trends Graph">
-
         <p>Análisis global de tendencias de suicidio, prevalencia de trastornos y relación con indicadores sociales.</p>
         <a href="https://github.com/AmberGrijalba/suicide-mental-health-analysis" target="_blank" class="btn">Ver en GitHub</a>
       </div>
@@ -343,7 +354,7 @@
 
 
   <!-- 💚💜 INTERFAZ SEGURO MÉDICO -->
-  <section id="insurance-ui" class="ui-container">
+  <section id="insurance-ui" class="ui-container hidden">
     <h2 class="ui-title">Insurance Cost Prediction – User Interface</h2>
 
     <p class="ui-description">
@@ -397,6 +408,41 @@
   <footer>
     © 2025 | Portafolio de Amber Grijalba
   </footer>
+
+
+<!-- ⭐ SCRIPT PARA ABRIR/CERRAR LA INTERFAZ -->
+<script>
+  const btn = document.getElementById("toggle-interface");
+  const panel = document.getElementById("insurance-ui");
+
+  let isOpen = false;
+
+  btn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (!isOpen) {
+      panel.classList.remove("hidden");
+
+      panel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      btn.textContent = "Ocultar Interfaz";
+    } else {
+      panel.classList.add("hidden");
+
+      btn.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      btn.textContent = "Ver Interfaz";
+    }
+
+    isOpen = !isOpen;
+  });
+</script>
 
 </body>
 </html>
