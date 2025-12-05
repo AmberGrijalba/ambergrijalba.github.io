@@ -271,16 +271,14 @@
 
   <div class="projects-grid">
 
-    <!-- PROYECTO 2 -->
     <div class="project-card">
       <h3>Insurance Cost Regression</h3>
       <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/segurografica.PNG">
-
       <p>Modelo de regresión para predecir el costo de seguros médicos.</p>
-
       <a href="https://github.com/AmberGrijalba/insurance-regression" target="_blank" class="btn">Ver en GitHub</a>
       <a id="toggle-interface" href="#insurance-ui" class="btn" style="margin-left:10px;background:#444;">Ver Interfaz</a>
     </div>
+
   </div>
 </section>
 
@@ -289,7 +287,11 @@
 <section id="insurance-ui" class="ui-container hidden">
 
   <h2 class="ui-title">Insurance Cost Prediction – User Interface</h2>
-  <p class="ui-description">Interfaz demostrativa del modelo de regresión.</p>
+
+  <!-- 🔥 TEXTO YA MODIFICADO -->
+  <p class="ui-description">
+    Interfaz demostrativa del modelo de regresión de seguro médico.
+  </p>
 
   <div class="ui-card">
 
@@ -338,7 +340,7 @@
 </footer>
 
 
-<!-- ⭐ SCRIPT PARA MOSTRAR/OCULTAR -->
+<!-- ⭐ SCRIPT MOSTRAR/OCULTAR -->
 <script>
   const btn = document.getElementById("toggle-interface");
   const panel = document.getElementById("insurance-ui");
@@ -361,7 +363,7 @@
 </script>
 
 
-<!-- ⭐ SCRIPT CORREGIDO: CALCULAR CUANDO LA INTERFAZ YA ESTÁ ABIERTA -->
+<!-- ⭐ SCRIPT CÁLCULO -->
 <script>
 document.addEventListener("click", function(e) {
   if (e.target.classList.contains("ui-btn")) {
@@ -416,7 +418,6 @@ document.addEventListener("click", function(e) {
   }
 });
 </script>
-
 
 </body>
 </html>
