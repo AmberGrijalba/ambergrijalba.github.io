@@ -155,6 +155,14 @@
       margin-bottom: .8rem;
     }
 
+    /* ⭐ NUEVO: Tamaño fijo igual al de Sleep Patterns */
+    .fixed-img {
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px;
+    }
+
     .btn {
       display: inline-block;
       background: linear-gradient(90deg, var(--secondary), var(--primary));
@@ -300,12 +308,12 @@
         <a href="https://github.com/AmberGrijalba/sleep-patterns-analysis" target="_blank" class="btn">Ver en GitHub</a>
       </div>
 
-      <!-- PROYECTO 2 (MODIFICADO SOLO LA IMAGEN) -->
+      <!-- PROYECTO 2 (MODIFICADO SOLO EL TAMAÑO DE IMAGEN) -->
       <div class="project-card">
         <h3>Insurance Cost Regression</h3>
 
-        <!-- ⭐ Imagen corregida -->
-        <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/segurografica.PNG"
+        <img class="fixed-img"
+             src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/segurografica.PNG"
              alt="Insurance Regression Graph">
 
         <p>Modelo de regresión para predecir el costo de seguros médicos según edad, IMC y factores de riesgo.</p>
