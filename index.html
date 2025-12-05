@@ -300,23 +300,20 @@
         <a href="https://github.com/AmberGrijalba/sleep-patterns-analysis" target="_blank" class="btn">Ver en GitHub</a>
       </div>
 
-      <!-- PROYECTO 2 -->
-<div class="project-card">
-  <h3>Insurance Cost Regression</h3>
+      <!-- PROYECTO 2 (MODIFICADO SOLO LA IMAGEN) -->
+      <div class="project-card">
+        <h3>Insurance Cost Regression</h3>
 
-  <!-- ⭐ Imagen agregada del repositorio -->
-  <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/segurografica.PNG" 
-       alt="Insurance Cost Graph">
+        <!-- ⭐ Imagen corregida -->
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/segurografica.PNG"
+             alt="Insurance Regression Graph">
 
-  <p>Modelo de regresión para predecir el costo de seguros médicos según edad, IMC y factores de riesgo.</p>
+        <p>Modelo de regresión para predecir el costo de seguros médicos según edad, IMC y factores de riesgo.</p>
 
-  <a href="https://github.com/AmberGrijalba/insurance-regression" target="_blank" class="btn">
-    Ver en GitHub
-  </a>
+        <a href="https://github.com/AmberGrijalba/insurance-regression" target="_blank" class="btn">Ver en GitHub</a>
 
-  <!-- ⭐ Botón para desplegar la interfaz -->
-  <button class="btn" onclick="toggleInterfaz()">Ver Interfaz</button>
-</div>
+        <button class="btn" onclick="toggleInterfaz()">Ver Interfaz</button>
+      </div>
 
       <!-- PROYECTO 3 -->
       <div class="project-card">
@@ -414,7 +411,6 @@
       const section = document.getElementById("insurance-ui");
       section.classList.toggle("active");
 
-      // si se abrió, hacer scroll suave
       if (section.classList.contains("active")) {
         setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth" });
