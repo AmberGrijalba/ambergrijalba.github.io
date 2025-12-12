@@ -174,7 +174,17 @@
       transform: scale(1.03);
     }
 
-    /* INTERFAZ */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      opacity: .6;
+      font-size: .9rem;
+    }
+
+    /* -----------------------------------------------------------
+       INTERFAZ SEGURO MÉDICO
+       ----------------------------------------------------------- */
+
     .ui-container {
       background: #1c2a18;
       padding: 40px;
@@ -182,6 +192,7 @@
       width: 80%;
       margin: 50px auto;
       box-shadow: 0 0 25px rgba(120,255,150,0.25);
+
       transition: all .6s ease;
     }
 
@@ -193,6 +204,21 @@
       padding-bottom: 0 !important;
     }
 
+    .ui-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #a36df8, #6ef0a8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ui-description {
+      color: #d2e9d2;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
     .ui-card {
       background: #173015;
       padding: 30px;
@@ -202,161 +228,254 @@
       gap: 15px;
     }
 
-    /* RESULTADO DEL CÁLCULO */
-    .result-box {
-      background: #102610;
-      padding: 20px;
-      margin-top: 25px;
-      border-radius: 15px;
-      border-left: 5px solid var(--primary);
-      color: #dfffe1;
-      animation: fadeIn .6s ease;
+    .ui-card input,
+    .ui-card select {
+      padding: 12px;
+      background: #0f1f0f;
+      color: white;
+      border: 2px solid #63e28f;
+      border-radius: 10px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .ui-btn {
+      margin-top: 25px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 20px;
+      border: none;
+      color: white;
+      background: linear-gradient(90deg, #8b5dfb, #63e28f);
+      cursor: pointer;
     }
+
+    .ui-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #8b5dfb;
+      font-size: 18px;
+    }
+
   </style>
 </head>
 
+
 <body>
 
-<!-- (TODO TU HTML ES IGUAL, NO CAMBIÉ NADA, LO OMITO AQUI POR ESPACIO) -->
-<!-- ................................................................. -->
-<!-- ................................................................. -->
-<!-- SOLO CAMBIÓ LA INTERFAZ Y EL SCRIPT -->
+  <!-- PORTADA -->
+  <header>
+    <div class="hero-container">
 
-<!-- 💚💜 INTERFAZ SEGURO MÉDICO -->
-<section id="insurance-ui" class="ui-container hidden">
-  <h2 class="ui-title">Insurance Cost Prediction – User Interface</h2>
+      <div class="hero-left">
+        <h1>Amber Grijalba</h1>
+        <h2>Ingeniería Biomédica | Inteligencia Artificial</h2>
 
-  <p class="ui-description">
-    Interfaz demostrativa del modelo de regresión de seguro médico.  
-    (Formulario visual sin ejecución real).
-  </p>
+        <img class="profile-pic" src="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/1000115419.png" alt="Foto de Amber Grijalba">
 
-  <div class="ui-card">
+        <a class="cv-btn" href="https://raw.githubusercontent.com/AmberGrijalba/ambergrijalba.github.io/main/Amber%20Grijalba%20CV%202025%20CV.pdf" target="_blank">
+          Descargar CV
+        </a>
+      </div>
 
-    <label>Edad</label>
-    <input id="edad" type="number" placeholder="Ej. 35">
+      <div class="hero-right">
+        <p class="about-text">
+          Soy <strong>Amber Grijalba</strong>, estudiante de último año de la Licenciatura en Ingeniería Biomédica, responsable, creativa y orientada a la solución de problemas. Me apasiona la innovación tecnológica aplicada a la salud, el análisis de datos y la inteligencia artificial como herramientas para mejorar la calidad de vida.  
+          Este portafolio reúne mis análisis, prácticas y proyectos más relevantes durante mi formación académica.  
+          ¡Espero que cada uno resulte interesante y valioso para usted!
+        </p>
+      </div>
 
-    <label>IMC (BMI)</label>
-    <input id="bmi" type="number" placeholder="Ej. 27.4">
-
-    <label>Hijos</label>
-    <input id="hijos" type="number" placeholder="0, 1, 2...">
-
-    <label>Sexo</label>
-    <select id="sexo">
-      <option>Seleccione...</option>
-      <option>Femenino</option>
-      <option>Masculino</option>
-    </select>
-
-    <label>Fumador</label>
-    <select id="fumador">
-      <option>Seleccione...</option>
-      <option>No</option>
-      <option>Sí</option>
-    </select>
-
-    <label>Región</label>
-    <select id="region">
-      <option>Seleccione...</option>
-      <option>Southwest</option>
-      <option>Southeast</option>
-      <option>Northwest</option>
-      <option>Northeast</option>
-    </select>
-
-    <button id="calc-btn" class="ui-btn">Calcular</button>
-
-    <!-- RESULTADO PROFESIONAL -->
-    <div id="resultado"></div>
-
-  </div>
-
-  <a href="https://github.com/AmberGrijalba/insurance-regression" class="ui-link" target="_blank">
-    ➜ Ver repositorio del análisis
-  </a>
-</section>
+    </div>
+  </header>
 
 
-<footer>
-  © 2025 | Portafolio de Amber Grijalba
-</footer>
+  <!-- PROYECTOS -->
+  <section class="projects-section">
+    <h2>Mis Proyectos y Análisis</h2>
+
+    <div class="projects-grid">
+
+      <!-- PROYECTO 1 -->
+      <div class="project-card">
+        <h3>Sleep Patterns Analysis</h3>
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/sleep-patterns-analysis/main/download.png" alt="Sleep Analysis Graph">
+        <p>Análisis de hábitos de sueño, estrés, actividad diaria y factores asociados a la calidad del descanso.</p>
+        <a href="https://github.com/AmberGrijalba/sleep-patterns-analysis" target="_blank" class="btn">Ver en GitHub</a>
+      </div>
+
+      <!-- PROYECTO 2 -->
+      <div class="project-card">
+        <h3>Insurance Cost Regression</h3>
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/segurografica.PNG" alt="Insurance Regression Graph">
+
+        <p>Modelo de regresión para predecir el costo de seguros médicos según edad, IMC y factores de riesgo.</p>
+
+        <a href="https://github.com/AmberGrijalba/insurance-regression" target="_blank" class="btn">Ver en GitHub</a>
+        <a id="toggle-interface" href="#insurance-ui" class="btn" style="margin-left:10px;background:#444;">Ver Interfaz</a>
+      </div>
+
+      <!-- PROYECTO 3 -->
+      <div class="project-card">
+        <h3>Mental Health & Suicide Analysis</h3>
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/suicide-mental-health-analysis/main/output/suicide_trends.png" alt="Suicide Trends Graph">
+        <p>Análisis global de tendencias de suicidio, prevalencia de trastornos y relación con indicadores sociales.</p>
+        <a href="https://github.com/AmberGrijalba/suicide-mental-health-analysis" target="_blank" class="btn">Ver en GitHub</a>
+      </div>
+
+      <!-- PROYECTO 4 -->
+      <div class="project-card">
+        <h3>Machine Learning – Clasificación</h3>
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/sleep-patterns-analysis/main/output/correlacion.png" alt="Clasificación IA">
+        <p>Implementación de modelos de inteligencia artificial enfocados en clasificación y análisis predictivo.</p>
+        <a href="https://github.com/AmberGrijalba" target="_blank" class="btn">Ver en GitHub</a>
+      </div>
+
+      <!-- PROYECTO 5 -->
+      <div class="project-card">
+        <h3>Biomedical Engineering Notes</h3>
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/insurance-regression/main/output/regression_plot.png" alt="Biomedical Notes">
+        <p>Compendio de apuntes, diagramas y análisis técnicos relacionados con ingeniería biomédica.</p>
+        <a href="https://github.com/AmberGrijalba" target="_blank" class="btn">Ver en GitHub</a>
+      </div>
+
+      <!-- PROYECTO 6 -->
+      <div class="project-card">
+        <h3>Deep Learning Experimentos</h3>
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/suicide-mental-health-analysis/main/output/suicide_trends.png" alt="Deep Learning">
+        <p>Pruebas con redes neuronales profundas en análisis de imágenes, datos tabulares y señales.</p>
+        <a href="https://github.com/AmberGrijalba" target="_blank" class="btn">Ver en GitHub</a>
+      </div>
+
+    </div>
+  </section>
 
 
-<!-- ⭐ SCRIPT ABRIR/CERRAR + ANÁLISIS SIMULADO -->
+
+  <!-- 💚💜 INTERFAZ SEGURO MÉDICO -->
+  <section id="insurance-ui" class="ui-container hidden">
+    <h2 class="ui-title">Insurance Cost Prediction – User Interface</h2>
+
+    <p class="ui-description">
+      Interfaz demostrativa del modelo de regresión de seguro médico.  
+      (Formulario visual sin ejecución real).
+    </p>
+
+    <div class="ui-card">
+
+      <label>Edad</label>
+      <input id="edad" type="number" placeholder="Ej. 35">
+
+      <label>IMC (BMI)</label>
+      <input id="imc" type="number" placeholder="Ej. 27.4">
+
+      <label>Hijos</label>
+      <input id="hijos" type="number" placeholder="0, 1, 2...">
+
+      <label>Sexo</label>
+      <select id="sexo">
+        <option>Seleccione...</option>
+        <option>Femenino</option>
+        <option>Masculino</option>
+      </select>
+
+      <label>Fumador</label>
+      <select id="fumador">
+        <option>Seleccione...</option>
+        <option>No</option>
+        <option>Sí</option>
+      </select>
+
+      <label>Región</label>
+      <select id="region">
+        <option>Seleccione...</option>
+        <option>Southwest</option>
+        <option>Southeast</option>
+        <option>Northwest</option>
+        <option>Northeast</option>
+      </select>
+
+      <button class="ui-btn" id="btnCalcular">Calcular</button>
+
+      <!-- 🔥 RESULTADO DEL ANÁLISIS (AGREGADO) -->
+      <div id="resultado-seguro" style="margin-top:20px; color:#a3f7b5; font-size:18px;"></div>
+
+    </div>
+
+    <a href="https://github.com/AmberGrijalba/insurance-regression" class="ui-link" target="_blank">
+      ➜ Ver repositorio del análisis
+    </a>
+  </section>
+
+
+  <footer>
+    © 2025 | Portafolio de Amber Grijalba
+  </footer>
+
+
+<!-- ⭐ SCRIPT PARA ABRIR/CERRAR LA INTERFAZ -->
 <script>
   const btn = document.getElementById("toggle-interface");
   const panel = document.getElementById("insurance-ui");
+
   let isOpen = false;
 
   btn.addEventListener("click", (event) => {
     event.preventDefault();
+
     if (!isOpen) {
       panel.classList.remove("hidden");
-      panel.scrollIntoView({ behavior: "smooth" });
+
+      panel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
       btn.textContent = "Ocultar Interfaz";
     } else {
       panel.classList.add("hidden");
-      btn.scrollIntoView({ behavior: "smooth" });
+
+      btn.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
       btn.textContent = "Ver Interfaz";
     }
+
     isOpen = !isOpen;
   });
+</script>
 
+<!-- ⭐ SCRIPT DEL ANÁLISIS SIMULADO (AGREGADO) -->
+<script>
+document.getElementById("btnCalcular").addEventListener("click", function() {
+  
+  const edad = Number(document.getElementById("edad").value);
+  const imc = Number(document.getElementById("imc").value);
+  const hijos = Number(document.getElementById("hijos").value);
+  const sexo = document.getElementById("sexo").value;
+  const fumador = document.getElementById("fumador").value;
+  const region = document.getElementById("region").value;
 
+  let mensaje = "<strong>Resultados del Análisis Simulado:</strong><br><br>";
 
-  /* ⭐⭐⭐ CALCULO SIMULADO PROFESIONAL ⭐⭐⭐ */
-  document.getElementById("calc-btn")
-    .addEventListener("click", () => {
+  if (edad > 50) mensaje += "• La edad incrementa moderadamente el costo del seguro.<br>";
+  else mensaje += "• La edad no representa un riesgo elevado para el cálculo.<br>";
 
-      let edad = Number(document.getElementById("edad").value);
-      let bmi  = Number(document.getElementById("bmi").value);
-      let hijos = Number(document.getElementById("hijos").value);
-      let sexo = document.getElementById("sexo").value;
-      let fumador = document.getElementById("fumador").value;
+  if (imc > 30) mensaje += "• El IMC indica sobrepeso/obesidad, lo cual incrementa el costo.<br>";
+  else mensaje += "• El IMC está dentro de parámetros saludables.<br>";
 
-      if (!edad || !bmi || sexo === "Seleccione..." || fumador === "Seleccione...") {
-        document.getElementById("resultado").innerHTML =
-        `<div class="result-box">⚠️ Por favor complete todos los campos obligatorios.</div>`;
-        return;
-      }
+  if (fumador === "Sí") mensaje += "• El hábito de fumar aumenta significativamente el costo del seguro.<br>";
+  else mensaje += "• No fumar reduce riesgos y costos asociados.<br>";
 
-      // Fórmula simulada (no real)
-      let costo = 2500 + (edad * 22) + (bmi * 45) + (hijos * 200);
+  if (hijos > 0) mensaje += `• Tener ${hijos} hijo(s) puede modificar ligeramente el valor del seguro.<br>`;
 
-      if (fumador === "Sí") costo *= 3.2;
-      if (sexo === "Femenino") costo *= 0.95;
+  mensaje += `• Región reportada: ${region}.<br><br>`;
 
-      costo = Math.round(costo);
+  mensaje += "<em>⚠ Este análisis es solo con fines educativos y no reemplaza una evaluación actuarial real.</em>";
 
-      // Interpretación
-      let riesgo =
-        costo > 12000 ? "ALTO" :
-        costo > 8000  ? "MODERADO" :
-                        "BAJO";
-
-      document.getElementById("resultado").innerHTML = `
-        <div class="result-box">
-          <h3>📊 Resultado Estimado</h3>
-          <p><strong>Costo aproximado del seguro:</strong> <span style="color:#6eea8e">$${costo}</span></p>
-          <p><strong>Nivel de riesgo calculado:</strong> ${riesgo}</p>
-          <hr style="border-color:#355; margin:12px 0;">
-          <p style="font-size:0.9rem;">
-            <em>Este resultado es una simulación educativa basada en relaciones típicas entre edad,
-            IMC, número de hijos y el riesgo asociado al hábito de fumar.</em>
-          </p>
-          <p style="color:#9fd4a0; font-size:0.85rem; margin-top:10px;">
-            ⚠️ <strong>Aclaración:</strong> Este análisis es únicamente con fines académicos
-            y no representa un cálculo médico ni financiero real.
-          </p>
-        </div>
-      `;
-    });
+  document.getElementById("resultado-seguro").innerHTML = mensaje;
+});
 </script>
 
 </body>
