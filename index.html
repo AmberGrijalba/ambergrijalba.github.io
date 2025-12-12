@@ -317,9 +317,16 @@
       <!-- PROYECTO 3 -->
       <div class="project-card">
         <h3>Mental Health & Suicide Analysis</h3>
-        <img src="https://raw.githubusercontent.com/AmberGrijalba/suicide-mental-health-analysis/main/output/suicide_trends.png" alt="Suicide Trends Graph">
+
+        <!-- ✅ CAMBIO 1: imagen del clustering (la que subiste) -->
+        <img src="https://raw.githubusercontent.com/AmberGrijalba/suicide-mental-health-analysis/main/suicidio.png" alt="Clusters de Riesgo en Salud Mental">
+
         <p>Análisis global de tendencias de suicidio, prevalencia de trastornos y relación con indicadores sociales.</p>
+
         <a href="https://github.com/AmberGrijalba/suicide-mental-health-analysis" target="_blank" class="btn">Ver en GitHub</a>
+
+        <!-- ✅ CAMBIO 2: botón para abrir la interfaz de suicidio -->
+        <a id="toggle-suicide-ui" href="#suicide-ui" class="btn" style="margin-left:10px;background:#444;">Ver Interfaz</a>
       </div>
 
       <!-- PROYECTO 4 -->
@@ -404,6 +411,41 @@
       ➜ Ver repositorio del análisis
     </a>
   </section>
+
+
+  <!-- ✅ NUEVA INTERFAZ (ASIGNACIÓN 3: SUICIDIO) -->
+  <section id="suicide-ui" class="ui-container hidden">
+    <h2 class="ui-title">Mental Health & Suicide – User Interface</h2>
+
+    <p class="ui-description">
+      Interfaz académica para estimar el grupo de atención en salud mental basado en patrones de clustering.
+    </p>
+
+    <div class="ui-card">
+
+      <label>Ideación suicida (0–10)</label>
+      <input id="mh_ideacion" type="number" placeholder="Ej. 7">
+
+      <label>Depresión (0–10)</label>
+      <input id="mh_depresion" type="number" placeholder="Ej. 6">
+
+      <label>Ansiedad (0–10)</label>
+      <input id="mh_ansiedad" type="number" placeholder="Ej. 5">
+
+      <label>Soporte social (0–10)</label>
+      <input id="mh_soporte" type="number" placeholder="Ej. 3">
+
+      <button class="ui-btn" id="btnSuicidio">Evaluar</button>
+
+      <div id="resultado-suicidio" style="margin-top:20px; color:#a3f7b5; font-size:18px;"></div>
+
+    </div>
+
+    <a href="https://github.com/AmberGrijalba/suicide-mental-health-analysis" class="ui-link" target="_blank">
+      ➜ Ver repositorio del análisis
+    </a>
+  </section>
+
 
 
   <footer>
@@ -495,6 +537,74 @@ document.getElementById("btnCalcular").addEventListener("click", function() {
   mensaje += "<em>⚠ Este análisis es solo con fines educativos y no reemplaza una evaluación actuarial real.</em>";
 
   document.getElementById("resultado-seguro").innerHTML = mensaje;
+});
+</script>
+
+<!-- ✅ SCRIPT PARA ABRIR/CERRAR LA INTERFAZ DE SUICIDIO -->
+<script>
+  const btnSuicideUI = document.getElementById("toggle-suicide-ui");
+  const panelSuicide = document.getElementById("suicide-ui");
+
+  let isSuicideOpen = false;
+
+  btnSuicideUI.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (!isSuicideOpen) {
+      panelSuicide.classList.remove("hidden");
+
+      panelSuicide.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      btnSuicideUI.textContent = "Ocultar Interfaz";
+    } else {
+      panelSuicide.classList.add("hidden");
+
+      btnSuicideUI.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+      btnSuicideUI.textContent = "Ver Interfaz";
+    }
+
+    isSuicideOpen = !isSuicideOpen;
+  });
+</script>
+
+<!-- ✅ SCRIPT DEL ANÁLISIS SIMULADO (SUICIDIO) -->
+<script>
+document.getElementById("btnSuicidio").addEventListener("click", function() {
+
+  const ideacion = Number(document.getElementById("mh_ideacion").value);
+  const depresion = Number(document.getElementById("mh_depresion").value);
+  const ansiedad  = Number(document.getElementById("mh_ansiedad").value);
+  const soporte   = Number(document.getElementById("mh_soporte").value);
+
+  let mensaje = "<strong>Resultados del Análisis Simulado:</strong><br><br>";
+
+  // Colores pedidos: 🟨 amarillo, 🟦 turquesa, 🟪 morado
+  let nombre = "🟦 Bajo riesgo (Turquesa)";
+  let color = "#1abc9c";
+  let desc  = "Perfil con indicadores bajos de riesgo. Recomendado: seguimiento general y prevención.";
+
+  if (ideacion >= 7 || depresion >= 7) {
+    nombre = "🟪 Alto riesgo (Morado)";
+    color = "#8e44ad";
+    desc  = "Perfil con ideación/depresión alta. Recomendado: atención prioritaria y evaluación profesional.";
+  } else if (ansiedad >= 5 || soporte <= 4) {
+    nombre = "🟨 Riesgo moderado (Amarillo)";
+    color = "#f1c40f";
+    desc  = "Perfil con factores moderados (ansiedad alta o soporte bajo). Recomendado: seguimiento y prevención.";
+  }
+
+  mensaje += `<strong>Cluster asignado:</strong> <span style="color:${color}; font-size:20px;">${nombre}</span><br><br>`;
+  mensaje += `${desc}<br><br>`;
+  mensaje += "<em>⚠ Esta herramienta es de uso académico y no sustituye una evaluación profesional.</em>";
+
+  document.getElementById("resultado-suicidio").innerHTML = mensaje;
 });
 </script>
 
