@@ -357,7 +357,6 @@
 
     <p class="ui-description">
       Interfaz demostrativa del modelo de regresión de seguro médico.  
-      (Formulario visual sin ejecución real).
     </p>
 
     <div class="ui-card">
@@ -459,18 +458,39 @@ document.getElementById("btnCalcular").addEventListener("click", function() {
 
   let mensaje = "<strong>Resultados del Análisis Simulado:</strong><br><br>";
 
-  if (edad > 50) mensaje += "• La edad incrementa moderadamente el costo del seguro.<br>";
-  else mensaje += "• La edad no representa un riesgo elevado para el cálculo.<br>";
+  // ✅ PRECIO APROXIMADO (AGREGADO)
+  let costo = 3000;
 
-  if (imc > 30) mensaje += "• El IMC indica sobrepeso/obesidad, lo cual incrementa el costo.<br>";
-  else mensaje += "• El IMC está dentro de parámetros saludables.<br>";
+  if (edad > 50) {
+    mensaje += "• La edad incrementa moderadamente el costo del seguro.<br>";
+    costo += 1200;
+  } else {
+    mensaje += "• La edad no representa un riesgo elevado para el cálculo.<br>";
+  }
 
-  if (fumador === "Sí") mensaje += "• El hábito de fumar aumenta significativamente el costo del seguro.<br>";
-  else mensaje += "• No fumar reduce riesgos y costos asociados.<br>";
+  if (imc > 30) {
+    mensaje += "• El IMC indica sobrepeso/obesidad, lo cual incrementa el costo.<br>";
+    costo += 1500;
+  } else {
+    mensaje += "• El IMC está dentro de parámetros saludables.<br>";
+  }
 
-  if (hijos > 0) mensaje += `• Tener ${hijos} hijo(s) puede modificar ligeramente el valor del seguro.<br>`;
+  if (fumador === "Sí") {
+    mensaje += "• El hábito de fumar aumenta significativamente el costo del seguro.<br>";
+    costo += 4000;
+  } else {
+    mensaje += "• No fumar reduce riesgos y costos asociados.<br>";
+  }
+
+  if (hijos > 0) {
+    mensaje += `• Tener ${hijos} hijo(s) puede modificar ligeramente el valor del seguro.<br>`;
+    costo += hijos * 500;
+  }
 
   mensaje += `• Región reportada: ${region}.<br><br>`;
+
+  // ✅ MUESTRA DEL PRECIO (AGREGADO)
+  mensaje += `<strong>💲 Costo anual estimado:</strong> <span style="color:#6ef0a8; font-size:22px;">$${costo.toLocaleString()} USD</span><br><br>`;
 
   mensaje += "<em>⚠ Este análisis es solo con fines educativos y no reemplaza una evaluación actuarial real.</em>";
 
